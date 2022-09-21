@@ -29,11 +29,28 @@ function myMapTest() {
     console.log(correct);
 }
 
-myMapTest();
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  // Place your code here.
+    for (let i = 0; i < this.length; i++) {
+        if (callbackFn(this[i]) === false) {
+            this.splice(i, 1);
+            i--;
+        }
+    }
+
+    return this;
 };
+
+// FILTER TEST //
+function myFilterTest() {
+    let arr = [1,2,,4,null];
+    
+    let newArr = arr.myFilter(x => x < 3);
+    let correct = arr.filter(x => x < 3);
+
+    console.log(newArr);
+    console.log(correct);
+}
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
