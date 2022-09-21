@@ -64,7 +64,6 @@ Array.prototype.mySome = function(callbackFn) {
 };
 
 // SOME TEST //
-
 function mySomeTest() {
     let arr = ["a", "b", , "c", null];
 
