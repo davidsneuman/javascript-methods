@@ -32,7 +32,7 @@ function myMapTest() {
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
     for (let i = 0; i < this.length; i++) {
-        if (callbackFn(this[i]) === false) {
+        if (!callbackFn(this[i])) {
             this.splice(i, 1);
             i--;
         }
