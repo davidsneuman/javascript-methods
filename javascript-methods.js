@@ -32,7 +32,7 @@ function myMapTest() {
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
     for (let i = 0; i < this.length; i++) {
-        if (!callbackFn(this[i])) {
+        if (!callbackFn(this[i], i, this)) {
             this.splice(i, 1);
             i--;
         }
@@ -54,8 +54,29 @@ function myFilterTest() {
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
+    for (let i = 0; i < this.length; i++) {
+        if (callbackFn(this[i])) {
+            return true;
+        }
+
+        return false;
+    }
 };
+
+// SOME TEST //
+
+function mySomeTest() {
+    let arr = ["a", "b", , "c", null];
+
+    let hasA = arr.mySome(x => x === "a");
+    let correctA = arr.some( x => x === "a");
+    let hasD = arr.mySome(x => x === "d");
+    let correctD = arr.some( x => x === "d");
+    console.log(hasA);
+    console.log(correctA);
+    console.log(hasD);
+    console.log(correctD);
+}
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
