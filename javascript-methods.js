@@ -103,8 +103,26 @@ function myEveryTest() {
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
+    if (this.length === 1) {
+        return this[0];
+    }
+    var reductions = [this[0]];
+    for (let i = 1; i < this.length; i++) {
+        reductions.push(callbackFn(reductions[i-1], this[i]));
+    }
+    return reductions[reductions.length-1];
 };
+
+// EVERY TEST //
+function myReduceTest() {
+    let arr = [1,2,3,4];
+    console.log(arr.myReduce((previousValue, currentValue) => previousValue + currentValue));
+    console.log(arr.reduce((previousValue, currentValue) => previousValue + currentValue));
+
+    console.log(arr.myReduce((previousValue, currentValue) => Math.max(previousValue, currentValue)));
+    console.log(arr.reduce((previousValue, currentValue) => Math.max(previousValue, currentValue)));
+
+}
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
