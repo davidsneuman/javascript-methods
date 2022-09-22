@@ -188,8 +188,27 @@ function myLastIndexOfTest() {
 
 // KEYS //
 Object.myKeys = function(object) {
-  // Place your code here.
+    var keys = [];
+    for (let key in object) {
+        keys.push(key);
+    }
+    return keys;
 };
+
+// KEYS TEST //
+function myKeysTest() {
+    const object1 = {
+        a: 'somestring',
+        b: 42,
+        c: false
+    };
+    const object2 = {};
+    
+    console.log(Object.myKeys(object1));
+    console.log(Object.keys(object1));
+    console.log(Object.myKeys(object2));
+    console.log(Object.keys(object2));
+}
 
 // VALUES //
 Object.myValues = function(object) {
