@@ -212,5 +212,24 @@ function myKeysTest() {
 
 // VALUES //
 Object.myValues = function(object) {
-  // Place your code here.
+    var values = [];
+    for (let key in object) {
+        values.push(object[key]);
+    }
+    return values;
 };
+
+// VALUES TEST //
+function myValuesTest() {
+    const object1 = {
+        a: 'somestring',
+        b: 42,
+        c: false
+    };
+    const object2 = {};
+    
+    console.log(Object.myValues(object1));
+    console.log(Object.values(object1));
+    console.log(Object.myValues(object2));
+    console.log(Object.values(object2));
+}
