@@ -146,8 +146,26 @@ function myIncludesTest() {
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
-  // Place your code here.
+  for (let i = 0; i < this.length; i++) {
+    let element = this[i];
+    if (element === searchElement) {
+        return i;
+    }
+  }
+  return -1;
 };
+
+// INDEXOF TEST //
+function myIncludesTest() {
+    let arr = [1,2,3,4];
+    console.log(arr.myIndexOf(2));
+    console.log(arr.indexOf(2));
+
+    console.log(arr.myIndexOf(5));
+    console.log(arr.indexOf(5));
+}
+
+myIncludesTest();
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
