@@ -58,9 +58,8 @@ Array.prototype.mySome = function(callbackFn) {
         if (callbackFn(this[i], i, this)) {
             return true;
         }
-
-        return false;
     }
+    return false;
 };
 
 // SOME TEST //
@@ -79,7 +78,28 @@ function mySomeTest() {
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
+    for (let i = 0; i < this.length; i++) {
+        if (!callbackFn(this[i], i, this)) {
+            return false;
+        }
+    }
+    return true;
 };
+
+// EVERY TEST //
+function myEveryTest() {
+    let allOnes = [1,1,1,1,1];
+    let missingOne = [1,1,1,,1,1,null]
+
+    let containsAllOnes = allOnes.myEvery(x => x === 1);
+    let correctAllOnes = allOnes.every( x => x === 1);
+    let missingOnes = missingOne.myEvery(x => x === 1);
+    let correctMissingOnes = missingOne.every( x => x === 1);
+    console.log(containsAllOnes);
+    console.log(correctAllOnes);
+    console.log(missingOnes);
+    console.log(correctMissingOnes);
+}
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
