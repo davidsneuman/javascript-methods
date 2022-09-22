@@ -156,7 +156,7 @@ Array.prototype.myIndexOf = function(searchElement) {
 };
 
 // INDEXOF TEST //
-function myIncludesTest() {
+function myIndexOfTest() {
     let arr = [1,2,3,4];
     console.log(arr.myIndexOf(2));
     console.log(arr.indexOf(2));
@@ -165,12 +165,26 @@ function myIncludesTest() {
     console.log(arr.indexOf(5));
 }
 
-myIncludesTest();
-
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
-  // Place your code here.
+    for (let i = this.length-1; i > -1; i--) {
+        let element = this[i];
+        if (element === searchElement) {
+            return i;
+        }
+      }
+      return -1;
 };
+
+// LASTINDEXOF TEST //
+function myLastIndexOfTest() {
+    let arr = [1,1,1,1];
+    console.log(arr.myLastIndexOf(1));
+    console.log(arr.lastIndexOf(1));
+
+    console.log(arr.myLastIndexOf(5));
+    console.log(arr.lastIndexOf(5));
+}
 
 // KEYS //
 Object.myKeys = function(object) {
