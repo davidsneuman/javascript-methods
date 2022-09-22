@@ -113,7 +113,7 @@ Array.prototype.myReduce = function(callbackFn) {
     return reductions[reductions.length-1];
 };
 
-// EVERY TEST //
+// REDUCE TEST //
 function myReduceTest() {
     let arr = [1,2,3,4];
     console.log(arr.myReduce((previousValue, currentValue) => previousValue + currentValue));
@@ -126,8 +126,23 @@ function myReduceTest() {
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
-  // Place your code here.
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === searchElement) {
+            return true;
+        }
+    }
+    return false;
 };
+
+// INCLUDES TEST //
+function myIncludesTest() {
+    let arr = [1,2,3,4];
+    console.log(arr.myIncludes(2));
+    console.log(arr.includes(2));
+
+    console.log(arr.myIncludes(5));
+    console.log(arr.includes(5));
+}
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
