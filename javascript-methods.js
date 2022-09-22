@@ -55,7 +55,7 @@ function myFilterTest() {
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
     for (let i = 0; i < this.length; i++) {
-        if (callbackFn(this[i])) {
+        if (callbackFn(this[i], i, this)) {
             return true;
         }
 
@@ -64,7 +64,6 @@ Array.prototype.mySome = function(callbackFn) {
 };
 
 // SOME TEST //
-
 function mySomeTest() {
     let arr = ["a", "b", , "c", null];
 
@@ -80,7 +79,6 @@ function mySomeTest() {
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
 };
 
 // REDUCE //
